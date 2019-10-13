@@ -4,6 +4,7 @@ from customer import Customer
 from addhandler import AddHandler
 from delhandler import DelHandler
 from gethandler import GetHandler
+from query import GetDetails
 
 custs = Customer()
 
@@ -17,6 +18,7 @@ def make_app():
         (r"/v1/addcustomer", AddHandler, dict(custs=custs)),
         (r"/v1/delcustomer", DelHandler, dict(custs=custs)),
         (r"/v1/getcustomers", GetHandler, dict(custs=custs)),
+        (r"/v1/getdetails", GetDetails, dict(custs=custs))
         ])
 
 if __name__ == "__main__":
@@ -28,5 +30,6 @@ if __name__ == "__main__":
 #http://localhost:8888/v1/addcustomer?name="Robert Brownie Jr."&contact="1234323409"
 #http://localhost:8888/v1/addcustomer?name="Brownie Spears"&contact="7865676509"
 #http://localhost:8888/v1/getcustomers
-#http://yourserver:8888/v1/delcustomer?name="Robert Brownie Jr."
-#http://yourserver:8888/v1/delcustomer?title="#not a customer"
+#http://localhost:8888/v1/delcustomer?name="Robert Brownie Jr."
+#http://localhost:8888/v1/delcustomer?name="not a customer"
+#http://localhost:8888/v1/deldetails?contact="1234323409"
