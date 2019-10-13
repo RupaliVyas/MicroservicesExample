@@ -17,10 +17,10 @@ class Customer:
     def del_cust(self, name):
         found = False
         for idx, cust in enumerate(self.customers):
-            if cust["name"] == name:
+            if cust["Name"] == name:
                 index = idx
                 found = True
-                del self.cutomers[idx]
+                del self.customers[idx]
         print("customers: {0}".format(json.dumps(self.customers)))
         return found
 
@@ -29,3 +29,21 @@ class Customer:
 
     def json_list(self):
         return json.dumps(self.customers)
+
+    def get_details(self, contact):
+        found = False
+        for idx, cust in enumerate(self.customers):
+            if cust["Contact"] == contact:
+                index = idx
+                found = True
+                
+        print("customers: {0}".format(json.dumps(self.customers)))
+        return found
+
+    def get_val(self, contact):
+        
+        for idx, cust in enumerate(self.customers):
+            if cust["Contact"] == contact:
+                index = idx
+                
+        return json.dumps(self.customers[index])
